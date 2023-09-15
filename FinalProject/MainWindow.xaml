@@ -1,0 +1,64 @@
+﻿<Window x:Class="FinalProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        xmlns:userControl="clr-namespace:FinalProject.View.UserControls"
+        xmlns:viewModel="clr-namespace:FinalProject.ViewModel"
+        mc:Ignorable="d"
+        Title="Final Project App" Height="470" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="350*"/>
+            <ColumnDefinition Width="350*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0"  Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Button Height="50" Width="250" Margin="5" FontSize="20" FontWeight="Bold" Content="Add expenses" x:Name="AddExpButton" Click="AddExpButton_Click"/>
+                <Button Height="50" Width="250" Margin="5" FontSize="20" FontWeight="Bold" Content="Add income" x:Name="AddIncButton" Click="AddIncButton_Click"/>
+                <TextBlock x:Name="TransactionTypeTxtBlock" Text="" FontFamily="Complex" FontSize="15" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <ComboBox Name="TranTypeCmbBox" IsEditable="True" IsReadOnly="True" Visibility="Hidden" Height="35" Margin="20,0" VerticalContentAlignment="Center">
+
+                    </ComboBox>
+                </Grid>
+                <StackPanel x:Name="SumStackPanel" Margin="10,5" Visibility="Hidden">
+                    <TextBlock Text="Sum:" FontFamily="Complex" FontSize="12" TextAlignment="Left"/>
+                    <TextBox x:Name="TransactionSumTxtBox" Height="30"/>
+                </StackPanel>
+                <StackPanel x:Name="DescStackPanel" Margin="10,5" Visibility="Hidden">
+                    <TextBlock Text="Description:" FontFamily="Complex" FontSize="12" TextAlignment="Left"/>
+                    <TextBox x:Name="TransactionDescTxtBox" Height="30"/>
+                </StackPanel>
+                <Grid Margin="15">
+                    <Button x:Name="ApplyTransactionButton" Content="Apply" FontSize="15" FontWeight="DemiBold" Height="50" VerticalAlignment="Center" Visibility="Hidden" Click="ApplyTransactionButton_Click"/>
+                </Grid>
+                <Button x:Name="ShowStatsButton" Content="Summary" Click="ShowStatsButton_Click" HorizontalAlignment="Center" Width="111" Margin="2"/>
+                <Button x:Name="RemoveTranButton" Content="Remove" Click="RemoveTranButton_Click" Width="106" HorizontalAlignment="Center" Margin="2" VerticalAlignment="Bottom"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border Grid.RowSpan="2" CornerRadius="6" BorderBrush="Gray"  BorderThickness="3"/>
+
+            <Border CornerRadius="6" BorderBrush="Gray"  BorderThickness="3"/>
+            <TextBlock Margin="3" x:Name="TextBlock1" Grid.Row="0" Text="Recent transactions:" FontSize="18" FontWeight="DemiBold" VerticalAlignment="Center"/>
+            <Border Grid.Row="1" CornerRadius="3" BorderBrush="CadetBlue"  BorderThickness="3" Margin="3,0,3,3">
+                <ScrollViewer Grid.Column="1" Grid.Row="1" Background="WhiteSmoke" HorizontalContentAlignment="Stretch">
+                    <ListBox x:Name="TranListBox" HorizontalContentAlignment="Stretch"/>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+            
+    </Grid>
+</Window>
