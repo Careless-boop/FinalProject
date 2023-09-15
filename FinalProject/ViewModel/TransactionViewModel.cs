@@ -16,8 +16,8 @@ namespace FinalProject.ViewModel
     public class TransactionViewModel : INotifyPropertyChanged
     {
         private const string SavesFile = "savedtransactions.json";
-        private ObservableCollection<Transaction> _transactions;
-        public ObservableCollection<Transaction> Transactions
+        private List<Transaction> _transactions;
+        public List<Transaction> Transactions
         {
             get { return _transactions; }
             set
@@ -29,7 +29,7 @@ namespace FinalProject.ViewModel
 
         public TransactionViewModel()
         {
-            Transactions = new ObservableCollection<Transaction>();
+            Transactions = new List<Transaction>();
         }
 
         

@@ -14,7 +14,7 @@ namespace FinalProject.ViewModel
         private const string savedTransactions = "summary.txt";
         private List<Transaction> _transactions;
         private List<Transaction> _currentTransactions;
-        public StatisticsViewModel(ObservableCollection<Transaction> transactions)
+        public StatisticsViewModel(List<Transaction> transactions)
         {
             _transactions = transactions.ToList();
         }

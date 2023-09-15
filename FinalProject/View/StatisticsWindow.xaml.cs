@@ -1,7 +1,7 @@
 ﻿using FinalProject.Model;
 using FinalProject.ViewModel;
 using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,7 +13,7 @@ namespace FinalProject.View
     public partial class StatisticsWindow
     {
         private StatisticsViewModel _viewModel;
-        public StatisticsWindow(ObservableCollection<Transaction> transactions)
+        public StatisticsWindow(List<Transaction> transactions)
         {
             InitializeComponent();
             _viewModel = new StatisticsViewModel(transactions);
